@@ -17,4 +17,9 @@ app.get('/', (req, res) => {
 //    console.log('server is running')
 //})
 
+app.use((error, req, res, next) => {
+    //console.log(error)
+    res.status(500).json({ message: error.message })
+})
+
 module.exports = app
